@@ -1,0 +1,10 @@
+require('dotenv').config();
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+const itemsRouter = require('./routes/items');
+app.use('/api/items', itemsRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`API corriendo en puerto ${PORT}`));
